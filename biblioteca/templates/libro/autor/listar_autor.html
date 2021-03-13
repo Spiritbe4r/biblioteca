@@ -1,0 +1,86 @@
+{% extends 'sb_admin2/layout.html' %}
+
+{% block title %}
+Listar Autores
+{% endblock title %}
+
+{% block content %}
+<div class="container">
+{% if autores %}
+
+<div class="card-body">
+<div class="table-responsive">
+<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+<thead>
+<tr>
+<th>#</th>
+<th>Nombres</th>
+<th>Apellidos</th>
+<th>Nacionalidad</th>
+<th>Descripcion</th>
+<th>Opciones</th>
+
+</tr>
+
+</thead>
+<tbody>
+
+{% for autor in autores %}
+<tr>
+<td>{{ autor.id }}</td>
+<td>{{ autor.nombre}}</td>
+<td>{{ autor.apellidos}}</td>
+<td>{{ autor.nacionalidad }}</td>
+<td>{{ autor.descripcion}}</td>
+<td>
+<a class="btn btn-primary" href="{% url 'libro:editar_autor' autor.id %}
+">Editar</a>
+
+<a class="btn btn-danger" href="{% url 'libro:eliminar_autor' autor.id %}
+">Eliminar</a>
+</td>
+</td>
+
+</tr>
+
+
+
+
+
+{% endfor %}
+
+</tbody>
+
+
+</table>
+</div>
+</div>
+
+{% else %}
+<h1>No existen autores Registrados</h1>
+
+{% endif %}
+<form action="" method="POST" enctype="multipart/form-data" class="form-horizontal">
+{% csrf_token %}
+
+<div class="card" >
+<div class="card-header">
+<strong>Formulario de Registro de Autores</strong>
+</div>
+<div class="card-body card-block" >
+
+
+{{ form.as_p }}
+
+<button type="submit" class="btn btn-primary">Registrar Autor</button>
+</div>
+
+
+</div>
+
+
+</form>
+</div>
+
+{% endblock content %}
+{% include footer.html %}

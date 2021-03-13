@@ -1,0 +1,66 @@
+{% extends 'sb_admin2/layout.html' %}
+
+{% block title %}
+Listar usuarios
+{% endblock title %}
+
+{% block content %}
+<div class="container">
+{% if object_list %}
+
+<div class="card-body">
+<div class="table-responsive">
+<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+<thead>
+<tr>
+<th>ID</th>
+<th>Username</th>
+<th>Nombres</th>
+<th>Apellidos</th>
+<th>Opciones</th>
+
+</tr>
+
+</thead>
+<tbody>
+
+{% for usuario in object_list %}
+<tr>
+<td>{{ usuario.id }}</td>
+<td>{{ usuario.username }}</td>
+<td>{{ usuario.nombres}}</td>
+<td>{{ usuario.apellidos }}</td>
+
+<td>
+<a class="btn btn-primary" href="
+">Editar</a>
+
+<a class="btn btn-danger" href="
+">Eliminar</a>
+</td>
+</td>
+
+</tr>
+
+
+{% endfor %}
+
+</tbody>
+
+
+</table>
+</div>
+</div>
+
+{% else %}
+<h1>No existen Usuarios Registrados</h1>
+
+{% endif %}
+
+
+
+</form>
+</div>
+
+{% endblock content %}
+

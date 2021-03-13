@@ -1,0 +1,54 @@
+{% extends 'sb_admin2/base.html' %}
+{% block title %}
+Crear Autor
+{% endblock title %}
+<h1>Formulario de Creacion de autores</h1>
+{% block content %}
+<form action="" method="POST">
+{% csrf_token %}
+{% if error %}
+<h2>{{ error }}</h2>
+{% else %}
+<div class="card-body card-block" >
+<form action="" method="POST" class="form-horizontal">
+
+<div class="row form-group">
+<div class="col col-md-3">{{ form.nombre.label }}</div>
+<div class="col-12 col-md-9">{{ autor_form.nombre }}</div>
+
+</div>
+<div class="row form-group">
+<div class="col col-md-3">{{ form.apellidos.label }}</div>
+<div class="col-12 col-md-9">{{ autor_form.apellidos }}</div>
+
+</div>
+
+<div class="row form-group">
+<div class="col col-md-3">{{ form.nacionalidad.label }}</div>
+<div class="col-12 col-md-9">{{ autor_form.nacionalidad }}</div>
+
+</div>
+
+<div class="row form-group">
+<div class="col col-md-3">{{ form.descripcion.label }}</div>
+<div class="col-12 col-md-9">{{ autor_form.descripcion }}</div>
+
+</div>
+</form>
+
+
+</div>
+
+<button type="submit" class="btn btn-submit">Crear</button>
+
+{% endif %}
+
+
+</form>
+{% endblock content %}
+
+
+
+<script src=''></script>
+</html>
+
