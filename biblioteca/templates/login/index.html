@@ -1,0 +1,23 @@
+{% load socialaccount %}
+{% providers_media_js %}
+
+
+<html>
+<head>
+<title>Google Registration</title>
+</head>
+<body>
+    <a href="{% provider_login_url 'google' %}">Google Connect</a>
+  <a href="{% provider_login_url 'facebook' method='js_sdk' %}">Login Button image</a>
+  
+
+<div class="social">
+<ul>
+<li class="facebook">
+<a href="{% url 'social:begin' 'facebook' %}">sign in with facebook</a>
+</li>
+</ul>
+</div>
+    </body>
+
+</html>

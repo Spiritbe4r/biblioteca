@@ -20,15 +20,19 @@ from django.contrib.auth.decorators import login_required
 from django.urls import path,include
 
 
-from apps.libro.views import Inicio
+from apps.accounts.views import Inicio
+
 urlpatterns = [
     
     path('admin/', admin.site.urls),
     path('libro/', include(('apps.libro.urls','libro'))),
-    path('', login_required(Inicio.as_view()), name="index"),
+    path('',Inicio.as_view(),name='index'),
+  #  path('accounts/', include('allauth.urls')),
+
     path('accounts/', include(('apps.accounts.urls','accounts'))),
+
     
-    #path('', LoginView.as_view(template_name='libro/login.html'), name="login"),
+   
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

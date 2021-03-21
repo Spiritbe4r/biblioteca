@@ -1,0 +1,31 @@
+{% extends 'sb_admin2/layout.html' %}
+
+{% block title %}
+Listar usuarios
+{% endblock title %}
+
+{% block content %}
+<div class="card">
+<div class="card-header">
+<strong class="card-title">Registro de Usuarios</strong>
+
+</div>
+<form method="POST">
+{% csrf_token %}
+{{ form.as_p}}
+<div>
+<a href="{% url 'accounts:listado_usuarios' %}" class="btn btn-danger">Cancelar</a>
+<button class="btn btn-primary" type="submit">Registrar Usuario</button>
+
+</div>
+</form>
+
+
+</div>
+
+
+
+
+
+
+{% endblock content %}

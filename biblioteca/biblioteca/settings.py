@@ -33,12 +33,16 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.sites',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.libro',
     'apps.accounts',
+
+
+
 ]
 
 MIDDLEWARE = [
@@ -105,7 +109,7 @@ LOGOUT_REDIRECT_URL = 'accounts:login'
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'es-pe'
+LANGUAGE_CODE = 'es-PE'
 
 TIME_ZONE = 'UTC'
 
@@ -124,3 +128,22 @@ STATICFILES_DIRS=[os.path.join(BASE_DIR,'static')]
 
 MEDIA_URL='/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+
+SITE_ID=1
+'''
+AUTHENTICATION_BACKENDS = [
+    
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.accounts.auth_backends.AuthenticationBackend',
+    
+]
+
+#facebook
+SOCIAL_AUTH_FACEBOOK_KEY = '2920415218188332'  # App ID
+SOCIAL_AUTH_FACEBOOK_SECRET ='1a3c34bfb464aec238aa019d7a3b8a2a' #app key
+
+SITE_ID=1
+LOGIN_REDIRECT_URL='/' '''

@@ -1,29 +1,111 @@
 {% load static %}
-                
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+  <i class="fas fa-angle-up"></i>
+</a>
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="{% url 'accounts:logout' %}">Logout</a>
-                </div>
-            </div>
+<!-- perfil Modal-->
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="perfilModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header primary-background text-white text-center">
+        <h5 class="modal-title" id="exampleModalLabel">TechBlog</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container text-center">
+          <img
+            src="{{ request.user.imagen.url }}"
+            class="img-fluid"
+            style="width:225px;
+    height:225px;
+    border-radius:50%;
+    border:5px solid #666;"
+          />
+          <br />
+          <h5 class="modal-title mt-3" id="exampleModalLabel">
+            {{request.user.username}}
+          </h5>
+          <!--//details-->
+
+          <div id="profile-details">
+            <table class="table">
+              <tbody>
+                <tr>
+                  <th scope="row">ID :</th>
+                  <td>{{request.user.id}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Email :</th>
+                  <td>{{request.user.email}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Nombres :</th>
+                  <td>{{request.user.nombres}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Descripcion :</th>
+                  <td>{{request.user.about}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Registro :</th>
+                  <td>{{ request.user.fecha_creacion }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
+      </div>
     </div>
-
-
+  </div>
+</div>
+<!-- Logout Modal-->
+<div
+  class="modal fade"
+  id="logoutModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+        <button
+          class="close"
+          type="button"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Select "Logout" below if you are ready to end your current session.
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" type="button" data-dismiss="modal">
+          Cancel
+        </button>
+        <a class="btn btn-primary" href="{% url 'accounts:logout' %}">Logout</a>
+      </div>
+    </div>
+  </div>
+</div>

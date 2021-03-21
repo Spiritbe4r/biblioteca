@@ -37,9 +37,11 @@ class Usuario(AbstractBaseUser):
     email = models.EmailField('Correo', max_length=254, unique=True)
     nombres = models.CharField('Nombres', max_length=200,blank=True ,null=True)
     apellidos = models.CharField('Apellidos', max_length=200,blank=True ,null=True)
-    imagen = models.ImageField('Imagen de perfil', upload_to='perfil', max_length=200, blank=True,null=True)
+    imagen = models.ImageField('Imagen de perfil', upload_to='perfil/', max_length=200, blank=True,null=True, default='default.jpg')
     usuario_activo = models.BooleanField(default=True)
     usuario_administrador=models.BooleanField(default=False)
+    about = models.TextField('Descripción',null=True)
+    fecha_creacion = models.DateTimeField(auto_now_add=True)
     objects = UsuarioManager()
 
     USERNAME_FIELD='username'

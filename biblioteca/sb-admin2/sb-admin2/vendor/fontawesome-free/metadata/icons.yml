@@ -14008,7 +14008,7 @@ people-arrows:
       - social distance
       - space
       - spread
-      - users
+      - accounts
   styles:
     - solid
   unicode: e068
@@ -20224,7 +20224,7 @@ user-friends:
       - people
       - person
       - team
-      - users
+      - accounts
   styles:
     - solid
   unicode: f500
